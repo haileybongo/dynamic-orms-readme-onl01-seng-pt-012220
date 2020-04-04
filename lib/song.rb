@@ -18,7 +18,6 @@ class Song
     column_names = []
     table_info.each do |row
       column_names << row["name"]
-
     end
     column_names.compact
   end
@@ -47,7 +46,7 @@ class Song
     values = []
     self.class.column_names.each do |col_name|
       values << "'#{send(col_name)}'" unless send(col_name).nil?
-            binding.pry
+      binding.pry
     end
     values.join(", ")
   end
