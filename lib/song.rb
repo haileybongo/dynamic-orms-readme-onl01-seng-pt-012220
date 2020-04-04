@@ -16,9 +16,9 @@ class Song
 
     table_info = DB[:conn].execute(sql)
     column_names = []
-    table_info.each do |row|
+    table_info.each do |row
       column_names << row["name"]
-      binding.pry
+
     end
     column_names.compact
   end
@@ -47,6 +47,7 @@ class Song
     values = []
     self.class.column_names.each do |col_name|
       values << "'#{send(col_name)}'" unless send(col_name).nil?
+            binding.pry
     end
     values.join(", ")
   end
